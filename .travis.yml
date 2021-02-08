@@ -9,11 +9,23 @@ jobs:
     - os: linux
       arch: amd64
       env:
-        - RELEASE_TAG_DOWNSTREAM=1
+        - RELEASE_TAG_DOWNSTREAM=0
     - os: linux
-      arch: arm64
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
       env:
         - RELEASE_TAG_DOWNSTREAM=0
+    - os: linux
+      arch: amd64
+      env:
+        - RELEASE_TAG_DOWNSTREAM=1
+    - os: linux
+      arch: arm64-graviton2
+      virt: lxd
+      group: edge
+      env:
+        - RELEASE_TAG_DOWNSTREAM=1
 
 before_install:
     - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
